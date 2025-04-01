@@ -1,0 +1,283 @@
+[gd_scene load_steps=10 format=3 uid="uid://butmcj7b4yw0c"]
+
+[ext_resource type="Script" uid="uid://g6bfslekviym" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://pl2h7lk4kk2b" path="res://art/bkgnd.png" id="1_ig7tw"]
+[ext_resource type="LabelSettings" uid="uid://bj12plc2ywtcv" path="res://main.tres" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://da5va608ggpe3" path="res://temp_set_point_label.gd" id="3_h2yge"]
+[ext_resource type="LabelSettings" uid="uid://b72a0f6mfr8c3" path="res://largeText.tres" id="5_7mycd"]
+[ext_resource type="LabelSettings" uid="uid://bgesaj7o8v1fa" path="res://smallTemp.tres" id="5_lquwl"]
+[ext_resource type="Theme" uid="uid://noyvnw31t82m" path="res://button.tres" id="7_272bh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1bvp3"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lquwl"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_0xm2m")
+
+[node name="Bkgnd" type="Sprite2D" parent="."]
+position = Vector2(760, 537)
+scale = Vector2(1.111, 1)
+texture = ExtResource("1_ig7tw")
+
+[node name="ThermostatSlider" type="VSlider" parent="Bkgnd"]
+offset_left = -595.497
+offset_top = -414.056
+offset_right = -524.497
+offset_bottom = -144.056
+min_value = 50.0
+value = 70.0
+
+[node name="ThermostatValue" type="Label" parent="Bkgnd"]
+offset_left = 20.2874
+offset_top = -433.963
+offset_right = 118.287
+offset_bottom = -388.963
+text = "70"
+label_settings = ExtResource("3_1bvp3")
+horizontal_alignment = 1
+script = ExtResource("3_h2yge")
+
+[node name="ThermostatLabel" type="Label" parent="Bkgnd"]
+offset_left = -646.812
+offset_top = -463.159
+offset_right = -466.812
+offset_bottom = -418.159
+text = "Thermostat"
+label_settings = SubResource("LabelSettings_1bvp3")
+
+[node name="ErrorValue" type="Label" parent="Bkgnd"]
+offset_left = 334.146
+offset_top = -188.449
+offset_right = 374.146
+offset_bottom = -143.449
+text = "0"
+label_settings = SubResource("LabelSettings_lquwl")
+horizontal_alignment = 1
+
+[node name="PerceptionValue" type="Label" parent="Bkgnd"]
+offset_left = -230.322
+offset_top = -188.449
+offset_right = -190.322
+offset_bottom = -143.449
+text = "70"
+label_settings = ExtResource("3_1bvp3")
+
+[node name="FurnaceState" type="Label" parent="Bkgnd"]
+offset_left = 340.407
+offset_top = 90.5514
+offset_right = 388.407
+offset_bottom = 135.551
+text = "Off"
+label_settings = ExtResource("3_1bvp3")
+
+[node name="ErrorThresholdSlider" type="VSlider" parent="Bkgnd"]
+offset_left = 463.031
+offset_top = -416.71
+offset_right = 504.031
+offset_bottom = -151.71
+max_value = 10.0
+value = 2.0
+
+[node name="ErrorThresholdLabel" type="Label" parent="Bkgnd"]
+offset_left = 361.594
+offset_top = -472.449
+offset_right = 603.594
+offset_bottom = -427.449
+text = "Error Threshold"
+label_settings = ExtResource("3_1bvp3")
+
+[node name="ErrorThresholdValue" type="Label" parent="Bkgnd"]
+offset_left = 457.065
+offset_top = -140.673
+offset_right = 510.065
+offset_bottom = -95.6729
+text = "2"
+label_settings = ExtResource("3_1bvp3")
+horizontal_alignment = 1
+
+[node name="FurnaceMaxSlider" type="VSlider" parent="Bkgnd"]
+offset_left = 531.053
+offset_top = 71.0
+offset_right = 547.053
+offset_bottom = 329.0
+min_value = 100.0
+max_value = 200.0
+value = 180.0
+
+[node name="FurnaceMaxLabel" type="Label" parent="Bkgnd"]
+offset_left = 477.948
+offset_top = -23.0
+offset_right = 601.948
+offset_bottom = 70.0
+text = "Furnace
+Max"
+label_settings = ExtResource("3_1bvp3")
+horizontal_alignment = 1
+
+[node name="FurnaceMaxValue" type="Label" parent="Bkgnd"]
+offset_left = 494.149
+offset_top = 335.0
+offset_right = 581.149
+offset_bottom = 380.0
+text = "180"
+label_settings = ExtResource("3_1bvp3")
+horizontal_alignment = 1
+
+[node name="FurnaceTemp" type="Label" parent="Bkgnd"]
+offset_left = 335.734
+offset_top = 131.0
+offset_right = 390.734
+offset_bottom = 176.0
+text = "70"
+label_settings = ExtResource("3_1bvp3")
+horizontal_alignment = 1
+
+[node name="OutsideLabel" type="Label" parent="Bkgnd"]
+offset_left = -638.458
+offset_top = 25.4205
+offset_right = -467.458
+offset_bottom = 74.4205
+text = "Outside"
+label_settings = ExtResource("3_1bvp3")
+horizontal_alignment = 1
+
+[node name="OutsideValue" type="Label" parent="Bkgnd"]
+offset_left = -26.1026
+offset_top = 303.0
+offset_right = 28.8974
+offset_bottom = 370.0
+text = "70"
+label_settings = ExtResource("5_7mycd")
+
+[node name="OutsideSlider" type="VSlider" parent="Bkgnd"]
+offset_left = -560.889
+offset_top = 87.7943
+offset_right = -544.889
+offset_bottom = 340.794
+min_value = -30.0
+max_value = 120.0
+value = 70.0
+
+[node name="InsideValue1" type="Label" parent="Bkgnd"]
+offset_left = 147.417
+offset_top = 117.0
+offset_right = 227.417
+offset_bottom = 151.0
+text = "70"
+label_settings = ExtResource("5_lquwl")
+horizontal_alignment = 1
+
+[node name="InsideValue2" type="Label" parent="Bkgnd"]
+offset_left = 104.071
+offset_top = 144.654
+offset_right = 184.071
+offset_bottom = 178.654
+text = "70"
+label_settings = ExtResource("5_lquwl")
+horizontal_alignment = 1
+
+[node name="InsideValue3" type="Label" parent="Bkgnd"]
+offset_left = 62.808
+offset_top = 174.0
+offset_right = 142.808
+offset_bottom = 208.0
+text = "70"
+label_settings = ExtResource("5_lquwl")
+horizontal_alignment = 1
+
+[node name="InsideValue4" type="Label" parent="Bkgnd"]
+offset_left = 13.415
+offset_top = 144.654
+offset_right = 93.415
+offset_bottom = 178.654
+text = "70"
+label_settings = ExtResource("5_lquwl")
+horizontal_alignment = 1
+
+[node name="InsideValue5" type="Label" parent="Bkgnd"]
+offset_left = -63.0063
+offset_top = 86.0
+offset_right = 49.9937
+offset_bottom = 153.0
+text = "70"
+label_settings = ExtResource("5_7mycd")
+horizontal_alignment = 1
+
+[node name="InsideValue6" type="Label" parent="Bkgnd"]
+offset_left = -97.57
+offset_top = 144.654
+offset_right = -17.57
+offset_bottom = 178.654
+text = "70"
+label_settings = ExtResource("5_lquwl")
+horizontal_alignment = 1
+
+[node name="InsideValue7" type="Label" parent="Bkgnd"]
+offset_left = -144.112
+offset_top = 173.654
+offset_right = -64.112
+offset_bottom = 207.654
+text = "70"
+label_settings = ExtResource("5_lquwl")
+horizontal_alignment = 1
+
+[node name="InsideValue8" type="Label" parent="Bkgnd"]
+offset_left = -188.267
+offset_top = 144.654
+offset_right = -108.267
+offset_bottom = 178.654
+text = "70"
+label_settings = ExtResource("5_lquwl")
+horizontal_alignment = 1
+
+[node name="InsideValue9" type="Label" parent="Bkgnd"]
+offset_left = -229.602
+offset_top = 113.654
+offset_right = -149.602
+offset_bottom = 147.654
+text = "70"
+label_settings = ExtResource("5_lquwl")
+horizontal_alignment = 1
+
+[node name="PauseButton" type="Button" parent="Bkgnd"]
+offset_left = -416.742
+offset_top = -470.0
+offset_right = -286.742
+offset_bottom = -410.0
+theme = ExtResource("7_272bh")
+toggle_mode = true
+text = "Pause"
+
+[node name="ResetButton" type="Button" parent="Bkgnd"]
+offset_left = -248.425
+offset_top = -470.0
+offset_right = -118.425
+offset_bottom = -410.0
+theme = ExtResource("7_272bh")
+text = "Reset"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+ignore_time_scale = true
+
+[connection signal="drag_ended" from="Bkgnd/ThermostatSlider" to="." method="_on_thermostat_slider_drag_ended"]
+[connection signal="drag_started" from="Bkgnd/ThermostatSlider" to="." method="_on_thermostat_slider_drag_started"]
+[connection signal="value_changed" from="Bkgnd/ThermostatSlider" to="." method="_on_thermostat_slider_value_changed"]
+[connection signal="drag_ended" from="Bkgnd/ErrorThresholdSlider" to="." method="_on_error_threshold_slider_drag_ended"]
+[connection signal="drag_started" from="Bkgnd/ErrorThresholdSlider" to="." method="_on_error_threshold_slider_drag_started"]
+[connection signal="value_changed" from="Bkgnd/ErrorThresholdSlider" to="." method="_on_error_threshold_slider_value_changed"]
+[connection signal="drag_ended" from="Bkgnd/FurnaceMaxSlider" to="." method="_on_furnace_max_slider_drag_ended"]
+[connection signal="drag_started" from="Bkgnd/FurnaceMaxSlider" to="." method="_on_furnace_max_slider_drag_started"]
+[connection signal="value_changed" from="Bkgnd/FurnaceMaxSlider" to="." method="_on_furnace_max_slider_value_changed"]
+[connection signal="drag_ended" from="Bkgnd/OutsideSlider" to="." method="_on_outside_slider_drag_ended"]
+[connection signal="drag_started" from="Bkgnd/OutsideSlider" to="." method="_on_outside_slider_drag_started"]
+[connection signal="value_changed" from="Bkgnd/OutsideSlider" to="." method="_on_outside_slider_value_changed"]
+[connection signal="toggled" from="Bkgnd/PauseButton" to="." method="_on_pause_button_toggled"]
+[connection signal="button_up" from="Bkgnd/ResetButton" to="." method="_on_reset_button_button_up"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
