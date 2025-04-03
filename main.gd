@@ -4,7 +4,7 @@ const FURNACE_STATE_OFF = "Off"
 const FURNACE_STATE_ON = "On"
 
 var thermostat_value: int = 70
-var error_threshold: int = 2
+var error_threshold: int = 1
 var error_value: int = 0
 var furnace_temp_value: int = 70
 var furnace_max_value: int = 180
@@ -150,7 +150,7 @@ func _on_furnace_max_slider_value_changed(value: float) -> void:
 # Util Methods
 func reset_vars() -> void:
 	thermostat_value = 70
-	error_threshold = 2
+	error_threshold = 1
 	error_value = 0
 	furnace_temp_value = 70
 	furnace_max_value = 180
