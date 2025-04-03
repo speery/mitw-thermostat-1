@@ -1,0 +1,14 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1743696121
+button.tres::Theme/Theme::942851683446627294::1743695290::0::1::::<><><>0<>0<><>::
+icon.svg::CompressedTexture2D/CompressedTexture2D::7671998671386867640::1743695290::1743695457::1::::<><><>0<>0<>bd24b86e09372f26fa99434b7a57bf1e<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+largeText.tres::LabelSettings/LabelSettings::4688246835375674492::1743695290::0::1::::<><><>0<>0<><>::
+main.gd::GDScript/GDScript::485199380775429988::1743695290::0::1::::<>Node<><>0<>0<><>::
+main.tres::LabelSettings/LabelSettings::3073460825860390325::1743695290::0::1::::<><><>0<>0<><>::
+main.tscn::PackedScene/PackedScene::3830153431510943196::1743695462::0::1::::<><><>0<>0<><>::uid://g6bfslekviym::::res://main.gd<>uid://pl2h7lk4kk2b::::res://art/bkgnd.png<>uid://bj12plc2ywtcv::::res://main.tres<>uid://da5va608ggpe3::::res://temp_set_point_label.gd<>uid://b72a0f6mfr8c3::::res://largeText.tres<>uid://bgesaj7o8v1fa::::res://smallTemp.tres<>uid://noyvnw31t82m::::res://button.tres
+README.md::TextFile/TextFile::-1::1743695290::0::1::::<><><>0<>0<><>::
+smallTemp.tres::LabelSettings/LabelSettings::2816904685232274058::1743695290::0::1::::<><><>0<>0<><>::
+temp_set_point_label.gd::GDScript/GDScript::7222470108900797392::1743695290::0::1::::<>Label<><>0<>0<><>::
+::res://art/::1743695457
+bkgnd orign.png::CompressedTexture2D/CompressedTexture2D::7238277933434220643::1743695290::1743695457::1::::<><><>0<>0<>975e81944dede3917ce98a1f040c7803<>res://.godot/imported/bkgnd orign.png-d5cbd81d60463db1a0bf45b95015fd22.ctex::
+bkgnd.png::CompressedTexture2D/CompressedTexture2D::1077194367460738783::1743695290::1743695457::1::::<><><>0<>0<>bba4a5d45fa59ea8fb71c2d0a0f43fe8<>res://.godot/imported/bkgnd.png-984896237521758d8262f9f1ec8149e3.ctex::
