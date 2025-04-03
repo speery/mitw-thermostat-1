@@ -174,9 +174,9 @@ func heat_gain(inside_value: float) -> float:
 func drag_ended(value_changed: bool) -> void:
 	if (value_changed): 
 		calculate_variables()
-		set_display_values_from_variables()
-		
-	$Timer.set_paused(false)
+		set_display_values_from_variables()	
+		if (!$Bkgnd/PauseButton.is_pressed()):
+			$Timer.set_paused(false)
 
 
 func calculate_variables() -> void:
