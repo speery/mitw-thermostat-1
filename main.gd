@@ -20,8 +20,7 @@ var inside_value5: float = 70
 var inside_value6: float = 70 
 var inside_value7: float = 70 
 var inside_value8: float = 70
-var inside_value9: float = 70 
- 
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -47,27 +46,8 @@ func _on_reset_button_button_up() -> void:
 	
 	
 func _on_timer_timeout() -> void:
-	if furnace_state == FURNACE_STATE_ON:
-		furnace_temp_value = furnace_temp_value + 1
-		if furnace_temp_value > furnace_max_value:
-			furnace_temp_value = furnace_max_value
-		inside_value1 = furnace_temp_value	
-	else: # FURNACE_STATE_OFF
-		if furnace_temp_value > inside_value1:
-			furnace_temp_value = furnace_temp_value - 1
-		
-	# Set heat wave
-	inside_value9 = inside_value8
-	inside_value8 = inside_value7
-	inside_value7 = inside_value6
-	inside_value6 = inside_value5
-	inside_value5 = inside_value4
-	inside_value4 = inside_value3
-	inside_value3 = inside_value2
-	inside_value2 = inside_value1
 	
-	# Heat Gain	
-	inside_value9 = heat_gain(inside_value9)
+	# Heat Gain/Loss	
 	inside_value8 = heat_gain(inside_value8)
 	inside_value7 = heat_gain(inside_value7)
 	inside_value6 = heat_gain(inside_value6)
@@ -75,10 +55,38 @@ func _on_timer_timeout() -> void:
 	inside_value4 = heat_gain(inside_value4)
 	inside_value3 = heat_gain(inside_value3)
 	inside_value2 = heat_gain(inside_value2)
-	if furnace_state == FURNACE_STATE_OFF:
-		inside_value1 = heat_gain(inside_value1)
+	inside_value1 = heat_gain(inside_value1)
 	
-	perception_value = inside_value9
+	if furnace_state == FURNACE_STATE_ON:
+		furnace_temp_value = furnace_temp_value + 1
+		if furnace_temp_value > furnace_max_value:
+			furnace_temp_value = furnace_max_value
+		
+		# Set heat wave
+		inside_value8 = inside_value7
+		inside_value7 = inside_value6
+		inside_value6 = inside_value5
+		inside_value5 = inside_value4
+		inside_value4 = inside_value3
+		inside_value3 = inside_value2
+		inside_value2 = inside_value1
+		inside_value1 = furnace_temp_value	
+	
+	else: # FURNACE_STATE_OFF
+		if furnace_temp_value > inside_value1:
+			furnace_temp_value = furnace_temp_value - 1
+		
+		var average = inside_value_average() # Get local value. Average will change as convection is called below
+		convection(inside_value1, average)
+		convection(inside_value2, average)
+		convection(inside_value3, average)
+		convection(inside_value4, average)
+		convection(inside_value5, average)
+		convection(inside_value6, average)
+		convection(inside_value7, average)
+		convection(inside_value8, average)
+		
+	perception_value = inside_value8
 	
 	calculate_variables()
 	set_display_values_from_variables()
@@ -166,11 +174,19 @@ func reset_vars() -> void:
 	inside_value6 = 70 
 	inside_value7 = 70 
 	inside_value8 = 70
-	inside_value9 = 70 
 
+func inside_value_average() -> float:
+	return (inside_value1 + inside_value2 + inside_value3 + inside_value4 +
+			inside_value5 + inside_value6 + inside_value7 + inside_value8) / 8
+	
 func heat_gain(inside_value: float) -> float:
 	return inside_value + ((outside_value - inside_value) * r_value)
-
+	
+	
+func convection(value, average): 
+	return value + ((average - value) * .5)
+	
+	
 func drag_ended(value_changed: bool) -> void:
 	if (value_changed): 
 		calculate_variables()
@@ -198,10 +214,6 @@ func set_display_values_from_variables() -> void:
 	$Bkgnd/PerceptionValue.text = str(perception_value)
 	$Bkgnd/OutsideValue.text = str(outside_value)
 	$Bkgnd/FurnaceState.text = furnace_state
-	#if (furnace_state == FURNACE_STATE_OFF):
-	#	$Bkgnd/FurnaceTemp.visible = false
-	#else:
-	#	$Bkgnd/FurnaceTemp.visible = true
 		
 	$Bkgnd/FurnaceTemp.text = str(furnace_temp_value)
 	$Bkgnd/InsideValue1.text = str("%.2f" % inside_value1)
@@ -212,4 +224,4 @@ func set_display_values_from_variables() -> void:
 	$Bkgnd/InsideValue6.text = str("%.2f" % inside_value6)
 	$Bkgnd/InsideValue7.text = str("%.2f" % inside_value7)
 	$Bkgnd/InsideValue8.text = str("%.2f" % inside_value8)
-	$Bkgnd/InsideValue9.text = str("%.2f" % inside_value9)
+	$Bkgnd/InsideValueAverage.text = str("%.2f" % inside_value_average())
