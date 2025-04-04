@@ -52,9 +52,9 @@ label_settings = SubResource("LabelSettings_1bvp3")
 
 [node name="ErrorValue" type="Label" parent="Bkgnd"]
 offset_left = 334.146
-offset_top = -188.449
+offset_top = -188.0
 offset_right = 374.146
-offset_bottom = -143.449
+offset_bottom = -143.0
 text = "0"
 label_settings = SubResource("LabelSettings_lquwl")
 horizontal_alignment = 1
@@ -76,43 +76,74 @@ text = "Off"
 label_settings = ExtResource("3_1bvp3")
 
 [node name="ErrorThresholdSlider" type="VSlider" parent="Bkgnd"]
-offset_left = 463.031
-offset_top = -416.71
-offset_right = 504.031
-offset_bottom = -151.71
+offset_left = 410.441
+offset_top = -384.0
+offset_right = 451.441
+offset_bottom = -203.0
 max_value = 10.0
 value = 1.0
 
 [node name="ErrorThresholdLabel" type="Label" parent="Bkgnd"]
-offset_left = 361.594
-offset_top = -472.449
-offset_right = 603.594
-offset_bottom = -427.449
-text = "Error Threshold"
+offset_left = 309.389
+offset_top = -486.0
+offset_right = 551.389
+offset_bottom = -393.0
+text = "Error
+Threshold"
 label_settings = ExtResource("3_1bvp3")
+horizontal_alignment = 1
 
 [node name="ErrorThresholdValue" type="Label" parent="Bkgnd"]
-offset_left = 457.065
-offset_top = -140.673
-offset_right = 510.065
-offset_bottom = -95.6729
+offset_left = 403.24
+offset_top = -188.0
+offset_right = 456.24
+offset_bottom = -143.0
 text = "1"
 label_settings = ExtResource("3_1bvp3")
 horizontal_alignment = 1
 
+[node name="FrameRateSlider" type="VSlider" parent="Bkgnd"]
+offset_left = 550.295
+offset_top = -384.0
+offset_right = 584.295
+offset_bottom = -208.0
+min_value = 0.5
+max_value = 10.0
+step = 0.5
+value = 0.5
+
+[node name="FrameRateLabel" type="Label" parent="Bkgnd"]
+offset_left = 519.352
+offset_top = -486.0
+offset_right = 617.352
+offset_bottom = -393.0
+text = "Frame
+Rate"
+label_settings = ExtResource("3_1bvp3")
+horizontal_alignment = 1
+
+[node name="FrameRateValue" type="Label" parent="Bkgnd"]
+offset_left = 540.954
+offset_top = -188.0
+offset_right = 598.954
+offset_bottom = -143.0
+text = "1.0"
+label_settings = ExtResource("3_1bvp3")
+horizontal_alignment = 1
+
 [node name="FurnaceMaxSlider" type="VSlider" parent="Bkgnd"]
-offset_left = 531.053
+offset_left = 495.0
 offset_top = 71.0
-offset_right = 547.053
-offset_bottom = 329.0
+offset_right = 511.0
+offset_bottom = 288.0
 min_value = 70.0
 max_value = 200.0
 value = 180.0
 
 [node name="FurnaceMaxLabel" type="Label" parent="Bkgnd"]
-offset_left = 477.948
+offset_left = 441.944
 offset_top = -23.0
-offset_right = 601.948
+offset_right = 565.944
 offset_bottom = 70.0
 text = "Furnace
 Max"
@@ -120,10 +151,10 @@ label_settings = ExtResource("3_1bvp3")
 horizontal_alignment = 1
 
 [node name="FurnaceMaxValue" type="Label" parent="Bkgnd"]
-offset_left = 494.149
-offset_top = 335.0
-offset_right = 581.149
-offset_bottom = 380.0
+offset_left = 459.2
+offset_top = 295.0
+offset_right = 546.2
+offset_bottom = 343.0
 text = "180"
 label_settings = ExtResource("3_1bvp3")
 horizontal_alignment = 1
@@ -155,10 +186,10 @@ text = "70"
 label_settings = ExtResource("5_7mycd")
 
 [node name="OutsideSlider" type="VSlider" parent="Bkgnd"]
-offset_left = -560.889
-offset_top = 87.7943
-offset_right = -544.889
-offset_bottom = 340.794
+offset_left = -561.0
+offset_top = 88.0
+offset_right = -545.0
+offset_bottom = 328.0
 min_value = -30.0
 max_value = 120.0
 value = 70.0
@@ -262,7 +293,6 @@ theme = ExtResource("7_272bh")
 text = "Reset"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
 autostart = true
 ignore_time_scale = true
 
@@ -272,6 +302,9 @@ ignore_time_scale = true
 [connection signal="drag_ended" from="Bkgnd/ErrorThresholdSlider" to="." method="_on_error_threshold_slider_drag_ended"]
 [connection signal="drag_started" from="Bkgnd/ErrorThresholdSlider" to="." method="_on_error_threshold_slider_drag_started"]
 [connection signal="value_changed" from="Bkgnd/ErrorThresholdSlider" to="." method="_on_error_threshold_slider_value_changed"]
+[connection signal="drag_ended" from="Bkgnd/FrameRateSlider" to="." method="_on_frame_rate_slider_drag_ended"]
+[connection signal="drag_started" from="Bkgnd/FrameRateSlider" to="." method="_on_frame_rate_slider_drag_started"]
+[connection signal="value_changed" from="Bkgnd/FrameRateSlider" to="." method="_on_frame_rate_slider_value_changed"]
 [connection signal="drag_ended" from="Bkgnd/FurnaceMaxSlider" to="." method="_on_furnace_max_slider_drag_ended"]
 [connection signal="drag_started" from="Bkgnd/FurnaceMaxSlider" to="." method="_on_furnace_max_slider_drag_started"]
 [connection signal="value_changed" from="Bkgnd/FurnaceMaxSlider" to="." method="_on_furnace_max_slider_value_changed"]

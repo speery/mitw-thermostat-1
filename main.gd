@@ -5,6 +5,7 @@ const FURNACE_STATE_ON = "On"
 
 var thermostat_value: int = 70
 var error_threshold: int = 1
+var frame_rate: float = 1.0
 var error_value: int = 0
 var furnace_temp_value: int = 70
 var furnace_max_value: int = 180
@@ -126,6 +127,22 @@ func _on_error_threshold_slider_value_changed(value: float) -> void:
 	error_threshold = value
 	$Bkgnd/ErrorThresholdValue.text = str(value as int)
 	
+
+# Frame Rate Slider
+func _on_frame_rate_slider_drag_started() -> void:
+	pass # Replace with function body.
+
+
+func _on_frame_rate_slider_drag_ended(value_changed: bool) -> void:
+	pass # Replace with function body.
+
+
+func _on_frame_rate_slider_value_changed(value: float) -> void:
+	frame_rate = value
+	$Bkgnd/FrameRateValue.text = str(value)
+	$Timer.set_wait_time(1/value)
+
+
 
 # Outside Slider
 func _on_outside_slider_drag_started() -> void:
