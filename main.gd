@@ -200,12 +200,12 @@ func calculate_variables() -> void:
 	if (error_value < 0):
 		error_value = 0
 		
-	if (error_value <= error_threshold): 
-		furnace_state = FURNACE_STATE_OFF
-	elif (furnace_state != FURNACE_STATE_ON):
-		furnace_state = FURNACE_STATE_ON
-		#furnace_temp_value = inside_value1	
-		
+	if (furnace_state == FURNACE_STATE_OFF):
+		if (error_value > error_threshold):
+			furnace_state = FURNACE_STATE_ON
+	else:
+		if (error_value == 0):
+			furnace_state = FURNACE_STATE_OFF	
 
 func set_display_values_from_variables() -> void:
 	$Bkgnd/ThermostatValue.text = str(thermostat_value)
