@@ -2,29 +2,30 @@ extends Node
 
 const FURNACE_STATE_OFF = "Off"
 const FURNACE_STATE_ON = "On"
-
-var thermostat_value: int = 70
-var error_threshold: int = 1
-var frame_rate: float = 1.0
-var error_value: int = 0
-var furnace_temp_value: int = 70
-var furnace_max_value: int = 180
-var perception_value: int = 70
-var outside_value: int = 70
-var r_value: float = .01
-var furnace_state = FURNACE_STATE_OFF
-var inside_value1: float = 70
-var inside_value2: float = 70 
-var inside_value3: float = 70 
-var inside_value4: float = 70 
-var inside_value5: float = 70 
-var inside_value6: float = 70 
-var inside_value7: float = 70 
-var inside_value8: float = 70
+	
+var thermostat_value: int
+var error_threshold: int
+var frame_rate: float = 5.0
+var error_value: int
+var furnace_temp_value: int
+var furnace_max_value: int
+var perception_value: int
+var outside_value: int
+var r_value: float
+var furnace_state
+var inside_value1: float
+var inside_value2: float 
+var inside_value3: float 
+var inside_value4: float
+var inside_value5: float
+var inside_value6: float
+var inside_value7: float
+var inside_value8: float
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	reset_vars()
 	set_display_values_from_variables()
 	#pass # Replace with function body.
 
@@ -175,10 +176,10 @@ func _on_furnace_max_slider_value_changed(value: float) -> void:
 # Util Methods
 func reset_vars() -> void:
 	thermostat_value = 70
-	error_threshold = 1
+	error_threshold = 2
 	error_value = 0
 	furnace_temp_value = 70
-	furnace_max_value = 180
+	furnace_max_value = 120
 	perception_value = 70
 	outside_value = 70
 	r_value = .01
@@ -242,3 +243,5 @@ func set_display_values_from_variables() -> void:
 	$Bkgnd/InsideValue7.text = str("%.2f" % inside_value7)
 	$Bkgnd/InsideValue8.text = str("%.2f" % inside_value8)
 	$Bkgnd/InsideValueAverage.text = str("%.2f" % inside_value_average())
+	
+	$Graph.set_data_frame(inside_value_average(), outside_value, thermostat_value)

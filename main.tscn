@@ -1,12 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://butmcj7b4yw0c"]
+[gd_scene load_steps=13 format=3 uid="uid://butmcj7b4yw0c"]
 
 [ext_resource type="Script" uid="uid://g6bfslekviym" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://pl2h7lk4kk2b" path="res://art/bkgnd.png" id="1_ig7tw"]
 [ext_resource type="LabelSettings" uid="uid://bj12plc2ywtcv" path="res://main.tres" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://da5va608ggpe3" path="res://temp_set_point_label.gd" id="3_h2yge"]
-[ext_resource type="LabelSettings" uid="uid://b72a0f6mfr8c3" path="res://largeText.tres" id="5_7mycd"]
 [ext_resource type="LabelSettings" uid="uid://bgesaj7o8v1fa" path="res://smallTemp.tres" id="5_lquwl"]
 [ext_resource type="Theme" uid="uid://noyvnw31t82m" path="res://button.tres" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://8khmnptai4kr" path="res://graph.tscn" id="8_5vw27"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5vw27"]
+font_size = 48
+font_color = Color(0, 0.862745, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1bvp3"]
 font_size = 32
@@ -16,12 +20,20 @@ font_color = Color(0, 0, 0, 1)
 font_size = 32
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_272bh"]
+font_size = 48
+font_color = Color(0, 0, 0.862745, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kek77"]
+font_size = 48
+font_color = Color(0.862745, 0, 0, 1)
+
 [node name="Main" type="Node"]
 script = ExtResource("1_0xm2m")
 
 [node name="Bkgnd" type="Sprite2D" parent="."]
-position = Vector2(760, 536)
-scale = Vector2(1.111, 1)
+position = Vector2(764, 536)
+scale = Vector2(1.11608, 1)
 texture = ExtResource("1_ig7tw")
 
 [node name="ThermostatSlider" type="VSlider" parent="Bkgnd"]
@@ -38,7 +50,7 @@ offset_top = -433.963
 offset_right = 118.287
 offset_bottom = -388.963
 text = "70"
-label_settings = ExtResource("3_1bvp3")
+label_settings = SubResource("LabelSettings_5vw27")
 horizontal_alignment = 1
 script = ExtResource("3_h2yge")
 
@@ -98,7 +110,7 @@ offset_left = 403.24
 offset_top = -188.0
 offset_right = 456.24
 offset_bottom = -143.0
-text = "1"
+text = "2"
 label_settings = ExtResource("3_1bvp3")
 horizontal_alignment = 1
 
@@ -108,9 +120,9 @@ offset_top = -384.0
 offset_right = 584.295
 offset_bottom = -208.0
 min_value = 0.5
-max_value = 10.0
+max_value = 30.0
 step = 0.5
-value = 0.5
+value = 5.0
 
 [node name="FrameRateLabel" type="Label" parent="Bkgnd"]
 offset_left = 519.352
@@ -127,7 +139,7 @@ offset_left = 540.954
 offset_top = -188.0
 offset_right = 598.954
 offset_bottom = -143.0
-text = "1.0"
+text = "5.0"
 label_settings = ExtResource("3_1bvp3")
 horizontal_alignment = 1
 
@@ -137,8 +149,8 @@ offset_top = 71.0
 offset_right = 511.0
 offset_bottom = 288.0
 min_value = 70.0
-max_value = 200.0
-value = 180.0
+max_value = 120.0
+value = 100.0
 
 [node name="FurnaceMaxLabel" type="Label" parent="Bkgnd"]
 offset_left = 441.944
@@ -155,7 +167,7 @@ offset_left = 459.2
 offset_top = 295.0
 offset_right = 546.2
 offset_bottom = 343.0
-text = "180"
+text = "120"
 label_settings = ExtResource("3_1bvp3")
 horizontal_alignment = 1
 
@@ -178,12 +190,13 @@ label_settings = ExtResource("3_1bvp3")
 horizontal_alignment = 1
 
 [node name="OutsideValue" type="Label" parent="Bkgnd"]
-offset_left = -26.1026
+offset_left = -61.0
 offset_top = 287.0
-offset_right = 28.8974
+offset_right = 61.0
 offset_bottom = 354.0
 text = "70"
-label_settings = ExtResource("5_7mycd")
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
 
 [node name="OutsideSlider" type="VSlider" parent="Bkgnd"]
 offset_left = -561.0
@@ -272,7 +285,7 @@ offset_top = 32.0
 offset_right = 51.7939
 offset_bottom = 99.0
 text = "70"
-label_settings = ExtResource("5_7mycd")
+label_settings = SubResource("LabelSettings_kek77")
 horizontal_alignment = 1
 
 [node name="PauseButton" type="Button" parent="Bkgnd"]
@@ -292,7 +305,11 @@ offset_bottom = -410.0
 theme = ExtResource("7_272bh")
 text = "Reset"
 
+[node name="Graph" parent="." instance=ExtResource("8_5vw27")]
+position = Vector2(-2, 897)
+
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
 autostart = true
 ignore_time_scale = true
 
