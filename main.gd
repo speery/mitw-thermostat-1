@@ -109,8 +109,8 @@ func _on_thermostat_slider_value_changed(value: float) -> void:
 	if (error_value < 0):
 		error_value = 0
 		
-	$Bkgnd/ThermostatValue.text = str(value as int)
-	$Bkgnd/ErrorValue.text = str(error_value as int)
+	$Bkgnd/ThermostatValue.text = str(value as int) + "°"
+	$Bkgnd/ErrorValue.text = str(error_value as int) + "°"
 	
 
 	
@@ -126,7 +126,7 @@ func _on_error_threshold_slider_drag_ended(value_changed: bool) -> void:
 
 func _on_error_threshold_slider_value_changed(value: float) -> void:
 	error_threshold = value
-	$Bkgnd/ErrorThresholdValue.text = str(value as int)
+	$Bkgnd/ErrorThresholdValue.text = str(value as int) + "°"
 	
 
 # Frame Rate Slider
@@ -156,7 +156,7 @@ func _on_outside_slider_drag_ended(value_changed: bool) -> void:
 
 func _on_outside_slider_value_changed(value: float) -> void:
 	outside_value = value
-	$Bkgnd/OutsideValue.text = str(value as int)
+	$Bkgnd/OutsideValue.text = str(value as int) + "°"
 
 
 # Furnace Max
@@ -170,7 +170,7 @@ func _on_furnace_max_slider_drag_ended(value_changed: bool) -> void:
 
 func _on_furnace_max_slider_value_changed(value: float) -> void:
 	furnace_max_value = value
-	$Bkgnd/FurnaceMaxValue.text = str(value as int)
+	$Bkgnd/FurnaceMaxValue.text = str(value as int) + "°"
 
 
 # Util Methods
@@ -226,22 +226,22 @@ func calculate_variables() -> void:
 			furnace_state = FURNACE_STATE_OFF	
 
 func set_display_values_from_variables() -> void:
-	$Bkgnd/ThermostatValue.text = str(thermostat_value)
-	$Bkgnd/ErrorThresholdValue.text = str(error_threshold)
-	$Bkgnd/ErrorValue.text = str(error_value)
-	$Bkgnd/PerceptionValue.text = str(perception_value)
-	$Bkgnd/OutsideValue.text = str(outside_value)
+	$Bkgnd/ThermostatValue.text = str(thermostat_value) + "°"
+	$Bkgnd/ErrorThresholdValue.text = str(error_threshold) + "°"
+	$Bkgnd/ErrorValue.text = str(error_value) + "°"
+	$Bkgnd/PerceptionValue.text = str(perception_value) + "°"
+	$Bkgnd/OutsideValue.text = str(outside_value) + "°"
 	$Bkgnd/FurnaceState.text = furnace_state
 		
-	$Bkgnd/FurnaceTemp.text = str(furnace_temp_value)
-	$Bkgnd/InsideValue1.text = str("%.2f" % inside_value1)
-	$Bkgnd/InsideValue2.text = str("%.2f" % inside_value2)
-	$Bkgnd/InsideValue3.text = str("%.2f" % inside_value3)
-	$Bkgnd/InsideValue4.text = str("%.2f" % inside_value4)
-	$Bkgnd/InsideValue5.text = str("%.2f" % inside_value5)
-	$Bkgnd/InsideValue6.text = str("%.2f" % inside_value6)
-	$Bkgnd/InsideValue7.text = str("%.2f" % inside_value7)
-	$Bkgnd/InsideValue8.text = str("%.2f" % inside_value8)
-	$Bkgnd/InsideValueAverage.text = str("%.2f" % inside_value_average())
+	$Bkgnd/FurnaceTemp.text = str(furnace_temp_value) + "°"
+	$Bkgnd/InsideValue1.text = str("%.2f°" % inside_value1)
+	$Bkgnd/InsideValue2.text = str("%.2f°" % inside_value2)
+	$Bkgnd/InsideValue3.text = str("%.2f°" % inside_value3)
+	$Bkgnd/InsideValue4.text = str("%.2f°" % inside_value4)
+	$Bkgnd/InsideValue5.text = str("%.2f°" % inside_value5)
+	$Bkgnd/InsideValue6.text = str("%.2f°" % inside_value6)
+	$Bkgnd/InsideValue7.text = str("%.2f°" % inside_value7)
+	$Bkgnd/InsideValue8.text = str("%.2f°" % inside_value8)
+	$Bkgnd/InsideValueAverage.text = str("%.2f°" % inside_value_average())
 	
 	$Graph.set_data_frame(inside_value_average(), outside_value, thermostat_value)
