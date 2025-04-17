@@ -49,7 +49,7 @@ offset_left = 20.2874
 offset_top = -433.963
 offset_right = 118.287
 offset_bottom = -388.963
-text = "70"
+text = "70°"
 label_settings = SubResource("LabelSettings_5vw27")
 horizontal_alignment = 1
 script = ExtResource("3_h2yge")
@@ -67,7 +67,7 @@ offset_left = 334.146
 offset_top = -188.0
 offset_right = 374.146
 offset_bottom = -143.0
-text = "0"
+text = "0°"
 label_settings = SubResource("LabelSettings_lquwl")
 horizontal_alignment = 1
 
@@ -76,7 +76,7 @@ offset_left = -230.322
 offset_top = -188.449
 offset_right = -190.322
 offset_bottom = -143.449
-text = "70"
+text = "70°"
 label_settings = ExtResource("3_1bvp3")
 
 [node name="FurnaceState" type="Label" parent="Bkgnd"]
@@ -110,7 +110,7 @@ offset_left = 403.24
 offset_top = -188.0
 offset_right = 456.24
 offset_bottom = -143.0
-text = "2"
+text = "2°"
 label_settings = ExtResource("3_1bvp3")
 horizontal_alignment = 1
 
@@ -167,7 +167,7 @@ offset_left = 459.2
 offset_top = 295.0
 offset_right = 546.2
 offset_bottom = 343.0
-text = "120"
+text = "120°"
 label_settings = ExtResource("3_1bvp3")
 horizontal_alignment = 1
 
@@ -176,7 +176,7 @@ offset_left = 335.734
 offset_top = 131.0
 offset_right = 390.734
 offset_bottom = 176.0
-text = "70"
+text = "70°"
 label_settings = ExtResource("3_1bvp3")
 horizontal_alignment = 1
 
@@ -194,7 +194,7 @@ offset_left = -61.0
 offset_top = 287.0
 offset_right = 61.0
 offset_bottom = 354.0
-text = "70"
+text = "70°"
 label_settings = SubResource("LabelSettings_272bh")
 horizontal_alignment = 1
 
@@ -212,7 +212,7 @@ offset_left = 136.814
 offset_top = 127.0
 offset_right = 216.814
 offset_bottom = 161.0
-text = "70"
+text = "70°"
 label_settings = ExtResource("5_lquwl")
 horizontal_alignment = 1
 
@@ -221,7 +221,7 @@ offset_left = 86.4087
 offset_top = 159.0
 offset_right = 166.409
 offset_bottom = 193.0
-text = "70"
+text = "70°"
 label_settings = ExtResource("5_lquwl")
 horizontal_alignment = 1
 
@@ -230,7 +230,7 @@ offset_left = 36.0036
 offset_top = 127.0
 offset_right = 116.004
 offset_bottom = 161.0
-text = "70"
+text = "70°"
 label_settings = ExtResource("5_lquwl")
 horizontal_alignment = 1
 
@@ -239,7 +239,7 @@ offset_left = -14.4014
 offset_top = 159.0
 offset_right = 65.5986
 offset_bottom = 193.0
-text = "70"
+text = "70°"
 label_settings = ExtResource("5_lquwl")
 horizontal_alignment = 1
 
@@ -248,7 +248,7 @@ offset_left = -64.8065
 offset_top = 127.0
 offset_right = 15.1935
 offset_bottom = 161.0
-text = "70"
+text = "70°"
 label_settings = ExtResource("5_lquwl")
 horizontal_alignment = 1
 
@@ -257,7 +257,7 @@ offset_left = -115.212
 offset_top = 159.0
 offset_right = -35.2115
 offset_bottom = 193.0
-text = "70"
+text = "70°"
 label_settings = ExtResource("5_lquwl")
 horizontal_alignment = 1
 
@@ -266,7 +266,7 @@ offset_left = -165.617
 offset_top = 127.0
 offset_right = -85.6165
 offset_bottom = 161.0
-text = "70"
+text = "70°"
 label_settings = ExtResource("5_lquwl")
 horizontal_alignment = 1
 
@@ -275,7 +275,7 @@ offset_left = -216.022
 offset_top = 159.0
 offset_right = -136.022
 offset_bottom = 193.0
-text = "70"
+text = "70°"
 label_settings = ExtResource("5_lquwl")
 horizontal_alignment = 1
 
@@ -284,7 +284,7 @@ offset_left = -61.2061
 offset_top = 32.0
 offset_right = 51.7939
 offset_bottom = 99.0
-text = "70"
+text = "70°"
 label_settings = SubResource("LabelSettings_kek77")
 horizontal_alignment = 1
 
